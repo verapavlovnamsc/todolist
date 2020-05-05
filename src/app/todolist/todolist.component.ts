@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-todolist',
@@ -6,15 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todolist.component.css']
 })
 
-export class TodolistComponent {
+export class TodolistComponent implements OnInit{
   todolist: ToDolist;
   selectedItem: ToDoItem;
+  @Input() toDoListTitle: string;
   constructor() {
-    this.todolist = new ToDolist("vashnoe");
+   }
+
+  ngOnInit(): void {
+    this.todolist = new ToDolist(this.toDoListTitle);
     this.todolist.addToDoItem(new ToDoItem("delo 1"));
     this.todolist.addToDoItem(new ToDoItem("delo 2"));
     this.todolist.addToDoItem(new ToDoItem("delo 3"));
-   }
+  }
 
   selectItem(todoitem: ToDoItem){
     this.selectedItem = todoitem;
@@ -22,7 +26,7 @@ export class TodolistComponent {
 
   getChangedText(text: string){
     this.selectedItem.title = text;
-  }
+  } 
 
   addDelo(nameDelo: string){
     this.todolist.addToDoItem(new ToDoItem(nameDelo));

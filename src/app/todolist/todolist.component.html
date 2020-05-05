@@ -4,13 +4,13 @@
 </p>
 <!-- Add -->
 <input type="text" #inputDelo>
-<button type="button" class="btn btn-primary" (click)="addDelo(inputDelo.value)">add</button>
+<button type="button" class="btn btn-primary" (click)="addDelo(inputDelo.value)">Добавить дело</button>
 
 <!-- Delete -->
 <div class="input-group mb-3" *ngFor="let delo of todolist.ToDoItems">
   <div class="input-group-prepend">
     <button type="button" class="btn btn-outline-secondary" (click)="deleteDelo(delo)">Удалить</button>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" (mouseenter)="selectItem(delo)">Open Modal</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" (mouseenter)="selectItem(delo)">Модальное окно</button>
   </div>
   <input type="text" [value]=delo.title class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 </div>
@@ -33,8 +33,8 @@
         <input type="text" #userInput [value]=selectedItem.title >
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-default" (click)="getChangedText(userInput.value)">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-default" (click)="getChangedText(userInput.value)">Изменить</button>
       </div>
     </div>
 
