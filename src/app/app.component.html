@@ -1,11 +1,15 @@
-<div class="container content"> 
-    <button class="btn btn-primary" (click)="add()">Создать список</button>
+<!-- <div class="container content">  -->
+    <!-- <button class="btn btn-primary" (click)="add()">Создать список</button> -->
 
-    <div class="row"> 
-        <div class="col-4" *ngFor="let spisok of spiski">
-            <app-todolist toDoListTitle={{spisok}}></app-todolist>
-         </div>
+    <!-- <div class="row">  -->
+        <!-- <div class="col-4" *ngFor="let spisok of spiski"> -->
+            <!-- <app-todolist toDoListTitle={{spisok}}></app-todolist> -->
+         <!-- </div> -->
        
-    </div>
-</div>
+    <!-- </div> -->
+<!-- </div> -->
+
+<app-test name={{person.name}} age={{person.age}} *ngFor="let person of people"></app-test>
+
+
 <router-outlet></router-outlet>
