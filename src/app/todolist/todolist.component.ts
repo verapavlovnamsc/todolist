@@ -35,14 +35,34 @@ export class TodolistComponent implements OnInit{
   deleteDelo(todoitem: ToDoItem){
     this.todolist.deleteToDoItem(todoitem);
   }
+
+  getColor(delo: ToDoItem):string{
+    if (delo.status === toDoItemStatus.inprogress){
+      return "green";
+    }
+    if (delo.status === toDoItemStatus.done){
+      return "blue";
+    }
+    if (delo.status === toDoItemStatus.deleted){
+      return "red";
+    }
+ }
+}
+enum toDoItemStatus{
+  done = 1,
+  deleted = 2,
+  inprogress = 3
 }
 
+
 class ToDoItem {
+  status: toDoItemStatus;
   id: string;
   title: string;
   constructor(title: string){
     this.id = Math.random().toString(36).substr(2, 9);
     this.title = title;
+    this.status = toDoItemStatus.done;
   }
 }
 
@@ -66,6 +86,8 @@ class ToDolist{
       this.ToDoItems.splice(index, 1);
       this.ClosedToDoItems.push(nameItem);
       console.log(this.ClosedToDoItems);
+      nameItem.status = toDoItemStatus.deleted;
+
     }
   }
 
