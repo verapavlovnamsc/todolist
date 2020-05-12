@@ -9,8 +9,7 @@ export class TestComponent implements OnInit {
   @Input() name: string;
   @Input() age: number;
   constructor() {
-  
-   }
+     }
 
   ngOnInit() {
   }
