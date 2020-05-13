@@ -31,11 +31,9 @@ export class TodolistComponent implements OnInit{
   addDelo(nameDelo: string){
     this.todolist.addToDoItem(new ToDoItem(nameDelo));
   }
-
   deleteDelo(todoitem: ToDoItem){
     this.todolist.deleteToDoItem(todoitem);
   }
-
   getColor(delo: ToDoItem):string{
     if (delo.status === toDoItemStatus.inprogress){
       return "green";
@@ -53,8 +51,6 @@ enum toDoItemStatus{
   deleted = 2,
   inprogress = 3
 }
-
-
 class ToDoItem {
   status: toDoItemStatus;
   id: string;
