@@ -9,15 +9,17 @@
 <!-- Delete -->
 <div class="input-group mb-3" *ngFor="let delo of todolist.ToDoItems">
   <div class="input-group-prepend">
+    <button type="button" class="btn btn-outline-secondary" (click)="sdelanoDelo(delo)">Сделано</button>
     <button type="button" class="btn btn-outline-secondary" (click)="deleteDelo(delo)">Удалить</button>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" (mouseenter)="selectItem(delo)">Модальное окно</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="changedDelo(delo)">Изменить</button>
+    <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" (mouseenter)="selectItem(delo)">Модальное окно</button> -->
   </div>
   <p>{{delo.status}}</p>
   <input type="text" [value]=delo.title [style.background-color]=getColor(delo) class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
 </div>
 
 <div class="input-group mb-3" *ngFor="let delo of todolist.ClosedToDoItems">
- <p [style.background-color]=getColor(delo)>{{delo.title}} </p>
+ <p [ngStyle]=getStyle(delo)>{{delo.title}} </p>
   </div>
 
 <!-- Modal -->

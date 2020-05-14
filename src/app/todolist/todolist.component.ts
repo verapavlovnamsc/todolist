@@ -27,12 +27,22 @@ export class TodolistComponent implements OnInit{
   getChangedText(text: string){
     this.selectedItem.title = text;
   } 
+  changedDelo(delo: ToDoItem){
+    delo.title = "gbhjbjn";
+  }
 
   addDelo(nameDelo: string){
     this.todolist.addToDoItem(new ToDoItem(nameDelo));
   }
   deleteDelo(todoitem: ToDoItem){
     this.todolist.deleteToDoItem(todoitem);
+    todoitem.status = toDoItemStatus.deleted;
+    this.todolist.moveToDoItemToClosed(todoitem);
+  }
+  sdelanoDelo(todoitem: ToDoItem){
+    this.todolist.deleteToDoItem(todoitem);
+    todoitem.status = toDoItemStatus.done;
+    this.todolist.moveToDoItemToClosed(todoitem);      
   }
   getColor(delo: ToDoItem):string{
     if (delo.status === toDoItemStatus.inprogress){
@@ -45,12 +55,19 @@ export class TodolistComponent implements OnInit{
       return "red";
     }
  }
+ getStyle(delo: ToDoItem): any{
+   return {
+     "background-color": this.getColor(delo),
+     "font-weight":"bold"
+   };
+ }
 }
 enum toDoItemStatus{
   done = 1,
   deleted = 2,
   inprogress = 3
 }
+
 class ToDoItem {
   status: toDoItemStatus;
   id: string;
@@ -58,7 +75,7 @@ class ToDoItem {
   constructor(title: string){
     this.id = Math.random().toString(36).substr(2, 9);
     this.title = title;
-    this.status = toDoItemStatus.done;
+    this.status = toDoItemStatus.inprogress;
   }
 }
 
@@ -80,11 +97,10 @@ class ToDolist{
     const index = this.ToDoItems.indexOf(nameItem);
     if (index != -1){
       this.ToDoItems.splice(index, 1);
-      this.ClosedToDoItems.push(nameItem);
-      console.log(this.ClosedToDoItems);
-      nameItem.status = toDoItemStatus.deleted;
-
     }
   }
 
+  moveToDoItemToClosed(nameItem: ToDoItem){
+    this.ClosedToDoItems.push(nameItem);
+  }
 }
