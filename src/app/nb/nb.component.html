@@ -1,0 +1,33 @@
+<div class="container">
+    <p>
+        {{todolist.Title}}
+      </p>
+  <p>
+    <label for="new-task">Добавить дело</label><input id="new-task" type="text" #inputDelo><button (click)="addDelo(inputDelo.value)">Добавить</button>
+  </p>
+  
+  <h3>Todolist</h3>
+  <ul id="incomplete-tasks">
+
+    <!-- <li><input type="checkbox"><label>Дело 1</label><input type="text"><button class="complete" (click)="sdelanoDelo(delo)">Завершить</button><button class="edit" (click)="changedDelo(delo)">Редактировать</button><button class="delete" (click)="deleteDelo(delo)">Удалить</button></li> -->
+    <li class="editMode" *ngFor="let delo of todolist.ToDoItems">
+      <input type="checkbox">
+      <h3>{{delo.title}}</h3>
+      <input type="text" [value]=delo.title>
+      <button class="complete" (click)="sdelanoDelo(delo)">Завершить</button>
+      <button class="edit">Редактировать</button>
+      <button class="delete" (click)="deleteDelo(delo)">Удалить</button>
+    </li>
+  </ul>
+
+  <!-- <p>{{delo.status}}</p> -->
+  <!-- <input type="text" [value]=delo.title [style.background-color]=getColor(delo) class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"> -->
+  
+  <h3>Завершенные</h3>
+      
+  <ul id="completed-tasks" *ngFor="let delo of todolist.ClosedToDoItems">
+    <li><input type="checkbox" checked><label>Дело 3</label><input type="text"><button class="edit">Редактировать</button><button class="delete">Удалить</button></li>
+    <p [ngStyle]=getStyle(delo)>{{delo.title}} </p>
+  </ul>
+  
+</div>
