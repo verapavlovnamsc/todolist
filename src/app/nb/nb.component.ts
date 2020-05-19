@@ -19,6 +19,10 @@ export class NbComponent implements OnInit {
     this.todolist.addToDoItem(new ToDoItem("delo 3"));
   }
 
+  constructor(){
+    this.selectedItem = new ToDoItem("");
+  }
+
   getColor(delo: ToDoItem):string{
     if (delo.status === toDoItemStatus.inprogress){
       return "green";
@@ -53,6 +57,14 @@ export class NbComponent implements OnInit {
     this.todolist.deleteToDoItem(todoitem);
     todoitem.status = toDoItemStatus.done;
     this.todolist.moveToDoItemToClosed(todoitem);      
+  }
+
+  changeDelo(todoitem: ToDoItem){
+    console.log(todoitem.id);
+    this.selectedItem = todoitem;
+  }
+  update(text: string){
+    this.selectedItem.title = text;
   }
 
 

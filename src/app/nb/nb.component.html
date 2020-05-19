@@ -2,6 +2,14 @@
     <p>
         {{todolist.Title}}
       </p>
+     
+      <div *ngIf="selectedItem.title.length>0">
+        <p>
+          {{selectedItem.id}}
+        </p>
+        <input type="text" [value]=selectedItem.title #inputdelo>
+        <button (click)="update(inputdelo.value)">Save</button>
+      </div>
   <p>
     <label for="new-task">Добавить дело</label><input id="new-task" type="text" #inputDelo><button (click)="addDelo(inputDelo.value)">Добавить</button>
   </p>
@@ -15,7 +23,7 @@
       <h3>{{delo.title}}</h3>
       <input type="text" [value]=delo.title>
       <button class="complete" (click)="sdelanoDelo(delo)">Завершить</button>
-      <button class="edit">Редактировать</button>
+      <button class="edit" (click)="changeDelo(delo)">Редактировать</button>
       <button class="delete" (click)="deleteDelo(delo)">Удалить</button>
     </li>
   </ul>
