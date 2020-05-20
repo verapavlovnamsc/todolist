@@ -1,4 +1,4 @@
-<div class="container">
+<div class="c">
     <p>
         {{todolist.Title}}
       </p>
@@ -20,7 +20,7 @@
     <!-- <li><input type="checkbox"><label>Дело 1</label><input type="text"><button class="complete" (click)="sdelanoDelo(delo)">Завершить</button><button class="edit" (click)="changedDelo(delo)">Редактировать</button><button class="delete" (click)="deleteDelo(delo)">Удалить</button></li> -->
     <li class="editMode" *ngFor="let delo of todolist.ToDoItems">
       <input type="checkbox">
-      <h3>{{delo.title}}</h3>
+      <p>{{delo.title}}</p>
       <input type="text" [value]=delo.title>
       <button class="complete" (click)="sdelanoDelo(delo)">Завершить</button>
       <button class="edit" (click)="changeDelo(delo)">Редактировать</button>

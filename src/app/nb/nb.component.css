@@ -4,11 +4,11 @@ body {
     color: #333;
     font-family: Lato, sans-serif;
   }
-  .container {
+  .c {
     display: block;
-    width: 500px;
+    width: 330px;
     /* margin: 50px 50px 100px 0; */
-    padding-right: 100px;
+    /* padding-right: 100px; */
     border: 1px solid black;
   }
   ul {
@@ -35,8 +35,6 @@ body {
     margin: 10px 0 0;
     font-family: Lato, sans-serif;
     cursor: pointer;
-    
-    
   }
   button:hover {
     color: #333;
@@ -75,6 +73,7 @@ body {
   input#new-task {
     float: left;
     width: 218px;
+    margin-left: 2em;
   }
   p > button:hover {
     color: #0FC57C;
