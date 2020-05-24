@@ -11,16 +11,17 @@ import { toDoItemStatus } from '../share/todoitemstatus';
 export class NbComponent implements OnInit {
   todolist: ToDolist;
   selectedItem: ToDoItem;
+  isShow: boolean;
   @Input() toDoListTitle: string;
    ngOnInit(): void {
     this.todolist = new ToDolist(this.toDoListTitle);
-    this.todolist.addToDoItem(new ToDoItem("delo 1"));
-    this.todolist.addToDoItem(new ToDoItem("delo 2"));
-    this.todolist.addToDoItem(new ToDoItem("delo 3"));
+    this.todolist.addToDoItem(new ToDoItem("delo 1", "description 1"));
+    this.todolist.addToDoItem(new ToDoItem("delo 2", "description 2"));
+    this.todolist.addToDoItem(new ToDoItem("delo 3", "description 3"));
   }
 
   constructor(){
-    this.selectedItem = new ToDoItem("");
+    this.selectedItem = new ToDoItem("", "");
   }
 
   getColor(delo: ToDoItem):string{
@@ -44,7 +45,7 @@ export class NbComponent implements OnInit {
   }
  
   addDelo(nameDelo: string){
-    this.todolist.addToDoItem(new ToDoItem(nameDelo));
+    this.todolist.addToDoItem(new ToDoItem(nameDelo, ""));
   }
 
   deleteDelo(todoitem: ToDoItem){
@@ -62,9 +63,17 @@ export class NbComponent implements OnInit {
   changeDelo(todoitem: ToDoItem){
     console.log(todoitem.id);
     this.selectedItem = todoitem;
+    this.isShow = true;
   }
-  update(text: string){
+
+  update(text: string, description: string){
     this.selectedItem.title = text;
+    this.selectedItem.description = description;
+    this.isShow = false;
+  }
+
+  filterDelo(text: string){
+    this.todolist.ToDoItems = this.todolist.ToDoItems.filter(x=>x.title===text);
   }
 
 
