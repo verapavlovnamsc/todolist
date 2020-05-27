@@ -1,0 +1,8 @@
+<p>
+  inputfilter works!
+</p>
+<input type='text' #inputdelo>
+<button btn-primary (click)="filterlist(inputdelo.value)">filter</button>
+<ul>
+  <li *ngFor="let delo of list">{{delo}}</li>
+</ul>

@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { NbComponent } from './nb/nb.component';
+import { InputfilterComponent } from './inputfilter/inputfilter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
-    NbComponent
+    NbComponent,
+    InputfilterComponent
   ],
   imports: [
     BrowserModule,

@@ -18,9 +18,9 @@ export class TodolistComponent implements OnInit{
 
   ngOnInit(): void {
     this.todolist = new ToDolist(this.toDoListTitle);
-    this.todolist.addToDoItem(new ToDoItem("delo 1"));
-    this.todolist.addToDoItem(new ToDoItem("delo 2"));
-    this.todolist.addToDoItem(new ToDoItem("delo 3"));
+    this.todolist.addToDoItem(new ToDoItem("delo 1", "description 1"));
+    this.todolist.addToDoItem(new ToDoItem("delo 2", "description 2"));
+    this.todolist.addToDoItem(new ToDoItem("delo 3", "description 3"));
   }
 
   selectItem(todoitem: ToDoItem){
@@ -35,7 +35,7 @@ export class TodolistComponent implements OnInit{
   }
 
   addDelo(nameDelo: string){
-    this.todolist.addToDoItem(new ToDoItem(nameDelo));
+    this.todolist.addToDoItem(new ToDoItem(nameDelo, ""));
   }
   deleteDelo(todoitem: ToDoItem){
     this.todolist.deleteToDoItem(todoitem);

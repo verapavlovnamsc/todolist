@@ -1,6 +1,9 @@
 import { ToDoItem } from "./todoitem";
 
 export class ToDolist{
+  push(arg0: string): any {
+    throw new Error("Method not implemented.");
+  }
     Title: string;
     ToDoItems: Array<ToDoItem>;
     ClosedToDoItems: Array<ToDoItem>;
