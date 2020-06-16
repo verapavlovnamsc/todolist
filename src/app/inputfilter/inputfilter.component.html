@@ -4,5 +4,5 @@
 <input type='text' #inputdelo>
 <button btn-primary (click)="filterlist(inputdelo.value)">filter</button>
 <ul>
-  <li *ngFor="let delo of list">{{delo}}</li>
+  <li *ngFor="let delo of filteredlist">{{delo}}</li>
 </ul>

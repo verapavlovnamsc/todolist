@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { NbComponent } from './nb/nb.component';
 import { InputfilterComponent } from './inputfilter/inputfilter.component';
+import { NewfilterclassComponent } from './newfilterclass/newfilterclass.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
     NbComponent,
-    InputfilterComponent
+    InputfilterComponent,
+    NewfilterclassComponent
   ],
   imports: [
     BrowserModule,
