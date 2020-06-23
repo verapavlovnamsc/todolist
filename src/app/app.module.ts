@@ -7,6 +7,8 @@ import { TodolistComponent } from './todolist/todolist.component';
 import { NbComponent } from './nb/nb.component';
 import { InputfilterComponent } from './inputfilter/inputfilter.component';
 import { NewfilterclassComponent } from './newfilterclass/newfilterclass.component';
+import { ObstutComponent } from './observable/observable.component';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { NewfilterclassComponent } from './newfilterclass/newfilterclass.compone
     TodolistComponent,
     NbComponent,
     InputfilterComponent,
-    NewfilterclassComponent
+    NewfilterclassComponent,
+    ObstutComponent
   ],
   imports: [
     BrowserModule,

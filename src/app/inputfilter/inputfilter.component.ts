@@ -11,28 +11,26 @@ export class InputfilterComponent {
   list: Array<string>;  // создаем переменную list
   filteredlist: Array<string>;  // создаем переменную filteredlist
   constructor() {
-    this.filteredlist = new Array<string>();
-    this.list = new Array<string>();
+    this.filteredlist = new Array<string>();   // создаем новый объект класса
+    this.list = new Array<string>();  // создаем новый объект класса
     this.list.push('мама');
-    this.list.push('папа');  // заполняем list значениями
+    this.list.push('папа');  // заполняем list значением
     this.list.push('мамапапа');
     this.list.push('папамама');
     this.list.push('брат');
     this.fillfilteredlist(this.list);  // вызываем метод fillfilteredlist с параметром this.list
-   
    }
 
    filterlist(inputdelo: string){
     if (inputdelo.length>0){  // если мы вводим какое-то значение
       this.fillfilteredlist(this.list.filter(x=>x.includes(inputdelo)));
-    } // фильтруем 
+    } // 
     else{
       this.fillfilteredlist(this.list);// вызываем метод fillfilteredlist с параметром this.list
     }
    }
 
    fillfilteredlist(strokelist: Array<string>){
-     console.log(strokelist);
      this.filteredlist= new Array<string>();  // создаем список fillfilteredlist
      for (let delo of strokelist){
       this.filteredlist.push(delo);
@@ -45,7 +43,7 @@ export class InputfilterComponent {
 
 
   // addToDoItem(nameItem: ToDoItem){
-    // this.ToDoItems.push(nameItem);
+    // this.ToDoItems.push(nameItem);ku
   // }
 
  
